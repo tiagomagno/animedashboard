@@ -604,9 +604,9 @@
 
                 <!-- Nav Menu -->
                 <nav class="nav-links">
-                    <a href="?ranking=score" class="nav-link">Rankings</a>
-                    <!-- Calendário Toggle -->
-                    <a href="#" onclick="toggleBottomCalendar(event)" class="nav-link">Calendário</a> 
+                    <a href="{{ route('dashboard.index') }}" class="nav-link">Dashboard</a>
+                    <a href="{{ route('rankings.index') }}" class="nav-link">Rankings</a>
+                    <a href="{{ route('calendar.index') }}" class="nav-link">Calendário</a>
                 </nav>
             </div>
             
@@ -974,6 +974,9 @@
             window.location.href = url.toString();
         }
     </script>
+
+    <!-- Calendar Floating Widget -->
+    <x-calendar-floating />
 
     @stack('scripts')
 </body>

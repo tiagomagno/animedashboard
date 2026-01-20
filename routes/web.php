@@ -5,10 +5,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\RankingController;
 
 // Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+Route::get('/rankings', [RankingController::class, 'index'])->name('rankings.index');
 Route::get('/anime/{anime}', [DashboardController::class, 'show'])->name('dashboard.show');
 
 // Seasons Management
