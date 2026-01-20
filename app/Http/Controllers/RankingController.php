@@ -21,7 +21,7 @@ class RankingController extends Controller
             ->whereNotNull('mean')
             ->where('mean', '>', 0)
             ->orderByDesc('mean')
-            ->orderByDesc('num_scoring_users')
+            ->orderByDesc('num_list_users')
             ->take(10)
             ->get();
 
