@@ -61,7 +61,10 @@ class CalendarController extends Controller
             }
         }
 
-        return view('calendar.index', compact('calendar', 'year', 'season', 'hideKids', 'hideAdult'));
+        // Available years for header
+        $availableYears = range(date('Y'), 2015);
+
+        return view('calendar.index', compact('calendar', 'year', 'season', 'hideKids', 'hideAdult', 'availableYears'));
     }
 
     private function getCurrentSeason()

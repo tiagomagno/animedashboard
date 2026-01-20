@@ -40,7 +40,10 @@ class RankingController extends Controller
             ->take(10)
             ->get();
 
-        return view('rankings.index', compact('trending', 'topMal', 'topSeason', 'currentYear', 'currentSeason'));
+        // Available years for header
+        $availableYears = range(date('Y'), 2015);
+
+        return view('rankings.index', compact('trending', 'topMal', 'topSeason', 'currentYear', 'currentSeason', 'availableYears'));
     }
 
     private function getCurrentSeason(): string
