@@ -1,0 +1,179 @@
+/* ================================================
+   MODALS
+   ================================================ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: var(--spacing-xl);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--border-color);
+}
+
+/* Settings Modal */
+.settings-modal {
+    max-width: 600px;
+    flex-direction: column;
+    padding: var(--spacing-xl);
+}
+
+.modal-header-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.modal-close i {
+    font-size: 1.5rem;
+}
+
+/* Camera Grid */
+.camera-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.camera-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-tertiary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.camera-option:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+}
+
+.camera-option.active {
+    border-color: var(--primary-color);
+    background: rgba(167, 242, 5, 0.1);
+}
+
+.screen-preview {
+    width: 80px;
+    height: 50px;
+    background: #000;
+    border-radius: var(--radius-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.cam-preview {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: var(--radius-sm);
+}
+
+.cam-preview.top-left {
+    top: 4px;
+    left: 4px;
+}
+
+.cam-preview.top-right {
+    top: 4px;
+    right: 4px;
+}
+
+.cam-preview.center-left {
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+}
+
+.cam-preview.center-right {
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+}
+
+.cam-preview.bottom-left {
+    bottom: 4px;
+    left: 4px;
+}
+
+.cam-preview.bottom-right {
+    bottom: 4px;
+    right: 4px;
+}
+
+.cam-preview.off {
+    position: static;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        max-height: 95vh;
+    }
+
+    .camera-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,223 @@
+/* ================================================
+   FILTERS COMPONENT
+   ================================================ */
+
+/* Navigation & Filters Bar */
+.nav-filters-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Season Tabs */
+.season-tabs-group {
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.season-tab-min {
+    padding-bottom: var(--spacing-md);
+    text-decoration: none;
+    color: #666;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-base);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    top: 1px;
+}
+
+.season-tab-min:hover {
+    color: #888;
+}
+
+.season-tab-min.active {
+    color: #fff;
+    border-bottom-color: var(--primary-color);
+}
+
+.season-count-badge {
+    font-size: 0.7rem;
+    background: #222;
+    padding: 1px 5px;
+    border-radius: var(--radius-sm);
+    color: #888;
+}
+
+.season-tab-min.active .season-count-badge {
+    background: var(--primary-color);
+    color: #000;
+    font-weight: 600;
+}
+
+/* Filters Right Group */
+.filters-right-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.filters-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #444;
+    letter-spacing: 0.5px;
+}
+
+/* Type Filters (Clean Pills) */
+.filter-pills-clean {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.filter-tab-clean {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    transition: color var(--transition-base);
+}
+
+.filter-tab-clean:hover {
+    color: #fff;
+}
+
+.filter-tab-clean.active {
+    color: #fff;
+}
+
+/* More Filters Dropdown */
+.more-filters-dropdown-wrapper {
+    position: relative;
+    margin-left: var(--spacing-sm);
+    border-left: 1px solid var(--border-color);
+    padding-left: var(--spacing-md);
+}
+
+.btn-more-filters {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-base);
+}
+
+.btn-more-filters:hover {
+    color: var(--primary-color);
+}
+
+.more-filters-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 300px;
+    background: #111;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+}
+
+.filter-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-section:last-child {
+    margin-bottom: 0;
+}
+
+.filter-section-title {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.checkbox-row input {
+    accent-color: #ff4d4d;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.filter-divider {
+    height: 1px;
+    background: #222;
+    margin: var(--spacing-md) 0;
+}
+
+/* Genre Grid */
+.genre-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.genre-tag {
+    font-size: 0.7rem;
+    background: #1a1a1a;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    color: #888;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.genre-tag:hover {
+    background: #252525;
+    color: #fff;
+}
+
+.genre-tag.active {
+    background: #222;
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-filters-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .season-tabs-group {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filters-right-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

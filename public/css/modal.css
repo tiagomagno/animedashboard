@@ -1,0 +1,265 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    /* Fundo mais escuro para foco */
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content - Split Layout */
+.modal-content {
+    background: #18181b;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 1000px;
+    height: 650px;
+    /* Altura fixa harmoniosa */
+    display: flex;
+    /* Flex Row */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    border: 1px solid #27272a;
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+/* Coluna Esquerda: Imagem */
+.modal-poster-col {
+    width: 40%;
+    flex-shrink: 0;
+    background: #09090b;
+    position: relative;
+}
+
+.modal-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal-poster-img.loaded {
+    opacity: 1;
+}
+
+/* Coluna Direita: Informações */
+.modal-info-col {
+    flex: 1;
+    padding: 2.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* Botão Fechar */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    /* Acima de tudo */
+    background: rgba(24, 24, 27, 0.5);
+    /* Semitransparente escuro */
+    color: #a1a1aa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 1.2rem;
+}
+
+.modal-close:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Header Group */
+.modal-header-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-right: 2rem;
+    /* Espaço para o botão fechar */
+}
+
+.modal-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin: 0;
+}
+
+.modal-subtitle {
+    font-size: 1.1rem;
+    color: #a1a1aa;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Meta Line */
+.modal-meta-line {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #27272a;
+}
+
+.meta-rating-badge {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #3f3f46;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #e4e4e7;
+    text-transform: uppercase;
+}
+
+/* Synopsis */
+.synopsis-container {
+    position: relative;
+    color: #d4d4d8;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.synopsis-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* Limite padrão */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.synopsis-text.expanded {
+    -webkit-line-clamp: unset;
+}
+
+.btn-read-more {
+    background: none;
+    border: none;
+    color: #a1a1aa;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    display: none;
+    /* JS controla */
+}
+
+.btn-read-more:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Grid Info */
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+    padding-top: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: #71717a;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    color: #f4f4f5;
+    font-weight: 500;
+}
+
+/* Related Seasons */
+.related-seasons {
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #27272a;
+}
+
+.related-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.related-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.related-badge {
+    background: #27272a;
+    color: #d4d4d8;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+    cursor: default;
+}
+
+.related-badge:hover {
+    background: #3f3f46;
+    color: #fff;
+}
+
+/* Custom Scrollbar for Info Col */
+.modal-info-col::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-info-col::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 4px;
+    border: 2px solid #18181b;
+}
+
+.modal-info-col::-webkit-scrollbar-track {
+    background: transparent;
+}

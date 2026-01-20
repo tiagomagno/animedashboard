@@ -1,0 +1,97 @@
+/* ================================================
+   CALENDAR WIDGET
+   ================================================ */
+
+.bottom-calendar-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1600px;
+    background: #121212;
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-radius: 16px 16px 0 0;
+    z-index: 900;
+    transition: transform var(--transition-slow);
+    box-shadow: var(--shadow-lg);
+}
+
+.bottom-calendar-container.closed {
+    transform: translate(-50%, calc(100% - 40px));
+}
+
+.calendar-header {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-xl);
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #000;
+    border-radius: 14px 14px 0 0;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.calendar-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.toggle-icon {
+    transition: transform var(--transition-base);
+}
+
+.bottom-calendar-container:not(.closed) .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.calendar-content {
+    height: 300px;
+    padding: var(--spacing-md);
+    overflow-y: auto;
+    background: #121212;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--spacing-md);
+    height: 100%;
+}
+
+.day-column {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.day-header {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.empty-day-state {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #444;
+    margin-top: var(--spacing-xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendar-days {
+        grid-template-columns: 1fr;
+    }
+}

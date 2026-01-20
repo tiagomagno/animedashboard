@@ -1,0 +1,83 @@
+/* ================================================
+   STATS COMPONENT
+   ================================================ */
+
+/* Dashboard Header Wrapper */
+.dashboard-header-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Stats Boxed Container */
+.stats-boxed-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stat-year-big {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.stats-data-grid {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-item-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label-modern {
+    font-size: 0.65rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.stat-value-modern {
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.stat-value-modern.total-highlight {
+    color: #ff4d4d;
+}
+
+.stat-value-modern.neon {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-boxed-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+    }
+
+    .stats-data-grid {
+        gap: var(--spacing-lg);
+    }
+
+    .stat-year-big {
+        font-size: 2.5rem;
+    }
+}
